@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "530394079456",
+    "project_id": "thinksafe-8c3df",
+    "storage_bucket": "thinksafe-8c3df.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:530394079456:android:f3ff10d615d4bf6980b085",
+        "android_client_info": {
+          "package_name": "com.example.thinksafe"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3SKBX8uforCIn3z4la3OtR1q4STk70-Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
