@@ -26,7 +26,7 @@ fun NavGraph(navController: NavController, notesViewModel: NotesViewModel, authV
             HomeScreen(authViewModel = authViewModel, notesViewModel = notesViewModel,navController)
         }
         composable(AppScreens.AddNoteScreen.route) {
-            AddNoteScreen( notesViewModel = notesViewModel,navController)
+            AddNoteScreen( authViewModel = authViewModel,notesViewModel = notesViewModel,navController)
         }
     }
 }

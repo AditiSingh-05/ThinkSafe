@@ -16,6 +16,10 @@ class AuthViewModel:ViewModel() {
     private val _user = MutableLiveData< FirebaseUser?>()
     val user : LiveData<FirebaseUser?> = _user
 
+    private val firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
+    private val _userName = MutableLiveData<String?>()
+    val userName: LiveData<String?> = _userName
+
     init{
         _user.value = auth.currentUser
     }
@@ -23,6 +27,20 @@ class AuthViewModel:ViewModel() {
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
             onResult(task.isSuccessful, task.exception?.message)
         }
+    }
+
+    fun fetchUserName() {
+        val userId = auth.currentUser?.uid ?: return
+        firestore.collection("users").document(userId)
+            .get()
+            .addOnSuccessListener { document ->
+                if (document.exists()) {
+                    _userName.value = document.getString("name") ?: "User"
+                }
+            }
+            .addOnFailureListener {
+                _userName.value = "User"
+            }
     }
 
     fun signUp(email: String, password: String, name: String, onResult: (Boolean, String?) -> Unit) {
